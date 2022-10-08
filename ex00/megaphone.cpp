@@ -2,6 +2,7 @@
 #include<sstream>
 #include<string>
 
+
 int	main(int ac, char **av)
 {
 	std::ostringstream	os;
