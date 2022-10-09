@@ -1,6 +1,7 @@
 #include<iostream>
 #include<sstream>
 #include<string>
+#include<cctype>
 
 
 int	main(int ac, char **av)
