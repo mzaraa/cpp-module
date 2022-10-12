@@ -1,11 +1,11 @@
-TARGET		= megaphone
-SRCS		= megaphone.cpp
+TARGET		= PhoneBook
+SRCS		= main.cpp PhoneBook.cpp Contact.cpp
 HEADERS		=
 CC			= g++
-CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98
-LD			= $(CC)
-OBJS		= $(SRCS:%.cpp=%.o)
-RM			= rm -rf
+CPP_FLAGS	=  -std=c++98
+LD			:= $(CC)
+OBJS		:= $(SRCS:%.cpp=%.o)
+RM			:= rm -rf
 
 all: $(TARGET)
 
