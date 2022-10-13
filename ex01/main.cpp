@@ -25,7 +25,7 @@ static void cmd_add(PhoneBook &pb)
 
 static void cmd_search(PhoneBook &pb)
 {
-	
+	pb.search_contact();
 }
 
 int	main(void)
