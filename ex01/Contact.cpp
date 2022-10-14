@@ -21,7 +21,7 @@ std::string const &Contact::get_phone_number(void) const {return _phone_number;}
 
 std::string const &Contact::get_darkest_secret(void) const{return _darkest_secret;}
 
-Contact::~Contact(void)
-{
-	std::cout << "\e[1;37;41m 🧱 Contact destructor called \e[0m" << std::endl;
-}
+// Contact::~Contact(void)
+// {
+// 	std::cout << "\e[1;37;41m 🧱 Contact destructor called \e[0m" << std::endl;
+// }
