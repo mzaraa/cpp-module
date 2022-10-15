@@ -2,7 +2,6 @@
 
 Contact::Contact(void)
 {
-	std::cout << "\e[1;37;44m 🧱 Contact default constructor called \e[0m" << std::endl;
 }
 
 Contact::Contact(std::string first_name, std::string last_name, 

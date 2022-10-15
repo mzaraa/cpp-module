@@ -1,12 +1,6 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include<iostream>
-#include<sstream>
-#include<string>
-#include<cctype>
-#include<iomanip>
-
 # include "Contact.hpp"
 
 std::istream &prompt(std::string const &prompt_line, std::string &line_read);
