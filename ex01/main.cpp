@@ -11,6 +11,19 @@ static void cmd_add(PhoneBook &pb)
 	prompt("phone_number ~> ", phone_number);
 	prompt("darkest secret ~> ", darkest_secret);
 
+	if (first_name.empty() || last_name.empty() || nickname.empty() || phone_number.empty() || darkest_secret.empty())
+	{
+		std::cerr << "No field should be empty !" << std::endl;
+		return ;
+	}
+	for (unsigned int i = 0; i < 10; i++)
+	{
+		if (!std::isdigit(phone_number[i]) || phone_number.size() != 10)
+		{
+			std::cerr << "The phone number should contain 10 number." << std::endl;
+			return ;
+		}
+	}
 	Contact new_contact(first_name, last_name, nickname, phone_number, darkest_secret);
 	pb.add_contact(new_contact);
 }

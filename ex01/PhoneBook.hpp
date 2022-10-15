@@ -17,7 +17,7 @@ public:
 	PhoneBook();
 	void add_contact(Contact &contact);
 	Contact const &print_contact(unsigned int const &index) const;
-	void search_contact(void) const;
+	void search_contact(void);
 	~PhoneBook();
 
 private:
@@ -25,6 +25,7 @@ private:
 	unsigned int	_pb_index;
 	unsigned int	_array_size;
 	Contact 		_contact[max_contact];
+	std::string		_truncate(std::string string);
 };
 
 #endif // PHONEBOOK_HPP
