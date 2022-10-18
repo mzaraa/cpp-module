@@ -68,9 +68,10 @@ void PhoneBook::search_contact(void)
 	else
 	{
 		std::cerr << "A quoi tu joues frerot ?" << std::endl;
-		std::exit(1);
+		return ;
 	}
 }
+
 Contact const &PhoneBook::print_contact(unsigned int const &index) const
 {
 	if (index >= _array_size || index < 0)
