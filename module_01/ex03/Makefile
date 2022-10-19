@@ -1,5 +1,5 @@
-TARGET		= zombie
-SRCS		= main.cpp Zombie.cpp zombieHorde.cpp
+TARGET		= prog
+SRCS		= main.cpp
 HEADERS		=
 CC			= g++
 CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98

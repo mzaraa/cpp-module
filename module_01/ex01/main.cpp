@@ -1,17 +1,41 @@
 #include "Zombie.hpp"
 
-int main(void)
+int main(int ac, char** av)
 {
-	int	N = 5;
-	std::string name = "zombie";
-
-	try
+	unsigned int	N;
+	std::string name;
+	if (ac != 3)
 	{
-		Zombie* horde = zombiehorde
+		std::cerr <<  "Error : ./a.out number_of_Zombie Zombies'_name\n";
+		return 1;
 	}
-	catch(const std::exception& e)
+	else if (!*av[1] || !*av[2])
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error : Bad args\n";
+		return 1;
 	}
-	
+	else
+	{
+		std::stringstream ss; 
+		ss << av[1];
+		ss >> N;
+		if (!N)
+		{
+			std::cerr << "Error : Not an integer !";
+			return 1;
+		}
+		try
+		{
+			Zombie* horde = zombieHorde(N, std::string(av[2]));
+			for (unsigned int i = 0; i < N; i++)
+				horde[i].annonce();
+			delete [] horde;
+		}
+		catch(const std::bad_alloc& e)
+		{
+			std::cerr << e.what() << '\n';
+			return 1;
+		}
+	}
+	return 0;
 }
