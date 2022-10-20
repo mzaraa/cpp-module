@@ -1,5 +1,5 @@
 TARGET		= prog
-SRCS		= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRCS		= main.cpp
 HEADERS		=
 CC			= g++
 CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98

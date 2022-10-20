@@ -10,10 +10,10 @@
 class Weapon
 {
 	public:
-		Weapon(/* args */);
+		Weapon(std::string const &weapon = "bow");
 		~Weapon();
-		std::string& const getType();
-		void setType(std::string & new_type);
+		std::string const &getType();
+		void setType(std::string new_type);
 	private:
 		std::string _type;
 };
