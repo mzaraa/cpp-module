@@ -1,24 +1,15 @@
-#include<iostream>
-#include<sstream>
-#include<string>
-#include<cctype>
+#include "Fixed.hpp"
 
-
-int	main(int ac, char **av)
+int	main(void)
 {
-	std::ostringstream	os;
-	std::string			str;
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 
-	if(ac > 1)
-	{
-		while (*(++av))
-			os << *av;
-		str = os.str();
-		for(std::string::iterator it = str.begin(); it != str.end(); ++it)
-			*it = std::toupper(*it);
-		std::cout << str << std::endl;
-	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	
 	return 0;
 }

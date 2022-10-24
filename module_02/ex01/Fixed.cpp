@@ -1,7 +1,6 @@
 #include "Fixed.hpp"
 
 /******************************** Constructor & destructor ********************************/
-
 Fixed::Fixed(void): _nb(0)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -16,6 +15,19 @@ Fixed::Fixed(Fixed const & src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
+}
+
+Fixed::Fixed(int const n)
+{
+	std::cout << "Int constructor called" << std::endl;
+	_nb = n << _fractional_bits;
+}
+
+Fixed::Fixed(float const f_nb)
+{
+	std::cout << "Float constructor called" << std::endl;
+	_nb = roundf(f_nb * (1 << _fractional_bits));
+	// std::cout << "ICI : " << _nb << "        ICI : " << f_nb << std::endl;
 }
 
 
@@ -38,11 +50,23 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 	return *this;
 }
 
+	/*
+	** We return a reference to a stream each time. In fact, it is the stream that we receive as an argument that is returned. 
+	** The purpose of this is to chain calls to the operator to be able to write code such as this.
+	** operator<<(operator<<(std::cout, t), std::endl);
+	*/
+std::ostream & operator<<(std::ostream &os, Fixed const &rhs)
+{
+	os << rhs.toFloat();
+
+	return os;
+}
+
 /*******************************  Fixed class member functions   ********************************/
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 
 	return _nb;
 }
@@ -50,4 +74,14 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
 	_nb = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+	return (float)_nb / (1 << _fractional_bits);
+}
+
+int Fixed::toInt(void) const
+{
+	return toFloat();
 }
