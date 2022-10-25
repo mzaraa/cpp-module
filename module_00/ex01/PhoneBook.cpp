@@ -2,6 +2,11 @@
 
 PhoneBook::PhoneBook(void): _contact(), _pb_index(0), _array_size(0) {};
 
+	/*
+	** PhoneBook::add_contact :
+	** _pb_index ~> used to know where to put the new contact.
+	** Have to replace the oldest contact of the list, so when _pb_index == 8 the oldest one is the first contact of the list
+	*/
 void PhoneBook::add_contact(Contact &new_contact)
 {
 	if (_pb_index >= 8)
@@ -14,6 +19,16 @@ void PhoneBook::add_contact(Contact &new_contact)
 		_array_size++;
 }
 
+	/*
+	** ligne 34 ~ 52 :
+	** std::setfill('~') > sets the stream fill character std::cout to ~.
+	** std::setw(56) > Manages the N number of characters (in this case ~) to generate on the output stream. Returns the previous field width.
+	** 2 for loop : the first to display information we want to appear / the second informations of each contacts, or empty if it is.
+	
+	** ligne 60 ~ 85 :
+	** Asks the user for an index to show them the information of the contact they are looking for.
+	** if the index enter is bad, an error is returned, otherwise the requested contact information is displayed.
+	*/
 void PhoneBook::search_contact(void) 
 {
 	Contact		 		contact = _contact[0];
@@ -67,8 +82,7 @@ void PhoneBook::search_contact(void)
 	}
 	else
 	{
-		std::cerr << "A quoi tu joues frerot ?" << std::endl;
-		return ;
+		std::cerr << "Error : Bad index" << std::endl;
 	}
 }
 

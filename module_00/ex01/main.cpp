@@ -1,6 +1,11 @@
 #include "PhoneBook.hpp"
 
-
+	/*
+	** cmd_add ~> when the user write ADD : 
+	** I get the new contact information. 
+	** Then, I check that there is no box left empty.
+	** When all is good, a new instance of the Contact class is created and added to the PhoneBook list.
+	*/
 static void cmd_add(PhoneBook &pb)
 {
 	std::string	first_name, last_name, nickname, phone_number, darkest_secret;
@@ -33,6 +38,12 @@ static void cmd_search(PhoneBook &pb)
 	pb.search_contact();
 }
 
+	/*
+	** std::istream &prompt() :
+	** function where i use getline() to reads characters from std::cin and places them into a string
+	** return std::cin ~> useful to know if there was an error in reading.
+	** A null pointer if at least one of failbit or badbit is set. Some other value otherwise (for C++98 standard).
+	*/
 std::istream &prompt(std::string const &prompt_line, std::string &line_read)
 {
 	std::cout << prompt_line;
