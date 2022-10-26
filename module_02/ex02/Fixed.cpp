@@ -31,7 +31,7 @@ Fixed::Fixed(float const f_nb)
 }
 
 
-/*******************************  Operator oveload   ********************************/
+/******************************* Operator oveload ********************************/
 
 	/*
 	** Operator overload (surcharge de l'operateur = )

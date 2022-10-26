@@ -30,7 +30,6 @@
 #define UNDL(x) "\x1B[4m" x RST
 
 	/****************** Class ******************/
-
 class ClapTrap
 {
 	public:
@@ -46,7 +45,7 @@ class ClapTrap
 		
 		std::string getName(void);
 		void setName(std::string new_name);
-	private:
+	protected:
 		std::string _name;
 		unsigned int _hit, _energy, _attack_dmg;
 };
