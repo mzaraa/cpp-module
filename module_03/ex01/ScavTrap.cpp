@@ -30,7 +30,7 @@ void ScavTrap::guardGate(void)
 
 ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ScavTrap ~ Copy assignment operator called" << std::endl;
 	if(this == &rhs)
 		return *this;
 	_name = rhs._name;

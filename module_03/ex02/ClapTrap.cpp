@@ -4,12 +4,12 @@
 
 ClapTrap::ClapTrap(): _name("unknow"), _hit(10), _energy(10), _attack_dmg(0)
 {
-	std::cout << "[" << BOLD(FBLU("DCTR ClapTrap")) << "] "<< "Default constructor called" << std::endl;
+	std::cout << "[" << BOLD(FBLU("DCTR ClapTrap")) << "] "<< "Default constructor called ~ ClapTrap created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const & name): _name(name), _hit(10), _energy(10), _attack_dmg(0)
 {
-	std::cout << "[" << BOLD(FBLU("CTR ClapTrap")) << "] "<< "Constructor called" << std::endl;
+	std::cout << "[" << BOLD(FBLU("CTR ClapTrap")) << "] "<< "Constructor called ~ ClapTrap created" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & cpy)
@@ -20,14 +20,14 @@ ClapTrap::ClapTrap(ClapTrap const & cpy)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "[" << BOLD(FRED("DSTR ClapTrap")) << "] "<< "Destructor called" << std::endl;
+	std::cout << "[" << BOLD(FRED("DSTR ClapTrap")) << "] "<< "Destructor called ~ ClapTrap destroyed" << std::endl;
 }
 
 /******************************* Operator oveload ********************************/
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap ~ Copy assignment operator called" << std::endl;
 	if(this == &rhs)
 		return *this;
 	_name = rhs._name;

@@ -27,7 +27,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap ~ Copy assignment operator called" << std::endl;
 	if(this == &rhs)
 		return *this;
 	_name = rhs._name;

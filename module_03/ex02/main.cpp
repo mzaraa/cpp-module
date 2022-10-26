@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 using std::endl;
 using std::cout;
@@ -7,8 +7,8 @@ int main (void)
 {
 	/* test constructor with name */
 	std::cout << BOLD(FYEL("Test constructor with name")) << std::endl;
-	ScavTrap constructor_name("ScavTrap_PREMIER");
-	ScavTrap other_constructor_name("ScavTrap_SECOND");
+	FragTrap constructor_name("FragTrap_PREMIER");
+	FragTrap other_constructor_name("FragTrap_SECOND");
 	std::cout << std::endl;
 
 	/* test attack member function get from ClapTrap */
@@ -22,10 +22,10 @@ int main (void)
 	other_constructor_name.beRepaired(5);
 	std::cout << std::endl;
 
-	/* test member guardGate function */
-	std::cout << BOLD(FYEL("Test member guardGate function")) << std::endl;
-	constructor_name.guardGate();
-	other_constructor_name.guardGate();
+	/* test member HighFivesGuys function */
+	std::cout << BOLD(FYEL("Test member HighFivesGuys() function")) << std::endl;
+	constructor_name.highFivesGuys();
+	other_constructor_name.highFivesGuys();
 	std::cout << std::endl;
 
 	// test overload of assignment operator
