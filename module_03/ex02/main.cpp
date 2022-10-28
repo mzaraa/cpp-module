@@ -1,8 +1,5 @@
 #include "FragTrap.hpp"
 
-using std::endl;
-using std::cout;
-
 int main (void)
 {
 	/* test constructor with name */
