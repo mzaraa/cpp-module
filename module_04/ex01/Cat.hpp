@@ -6,13 +6,15 @@
 	/****************** Class ******************/
 class Cat: public Animal
 {
-    public:
-        Cat();
-        Cat(Cat const & cpy);
-        ~Cat();
-        Cat& operator=(Cat const & rhs);
+	public:
+		Cat();
+		Cat(Cat const & cpy);
+		~Cat();
+		Cat& operator=(Cat const & rhs);
 
-        void makeSound(void) const;
+		void makeSound(void) const;
+	private:
+		
 };
 
 #endif // CAT_HPP
