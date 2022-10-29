@@ -8,9 +8,10 @@ WrongCat::WrongCat()
 	std::cout << "[" << BOLD(FBLU("DCTR WrongCat")) << "] "<< "Default constructor called ~ WrongCat created" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const & cpy): WrongAnimal(cpy)
+WrongCat::WrongCat(WrongCat const & cpy)
 {
 	std::cout << "[" << BOLD(FBLU("Copy CTR")) << "] "<< "Copy constructor called" << std::endl;
+	*this = cpy;
 }
 
 WrongCat::~WrongCat()

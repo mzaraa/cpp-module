@@ -2,6 +2,7 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 	/****************** Class ******************/
 class Dog: public Animal
@@ -9,10 +10,13 @@ class Dog: public Animal
 	public:
 		Dog();
 		Dog(Dog const & cpy);
-		~Dog();
+		virtual ~Dog();
 		Dog& operator=(Dog const & rhs);
 
 		void makeSound(void) const;
+
+	private:
+		Brain* _brain;
 };
 
 #endif // DOG_HPP

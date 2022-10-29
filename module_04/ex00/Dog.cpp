@@ -8,9 +8,10 @@ Dog::Dog()
 	std::cout << "[" << BOLD(FMAG("DCTR Dog")) << "] "<< "Default constructor called ~ Dog created" << std::endl;
 }
 
-Dog::Dog(Dog const & cpy): Animal(cpy)
+Dog::Dog(Dog const & cpy)
 {
 	std::cout << "[" << BOLD(FMAG("Copy CTR")) << "] "<< "Copy constructor called" << std::endl;
+	*this = cpy;
 }
 
 Dog::~Dog()

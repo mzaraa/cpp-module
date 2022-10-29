@@ -8,9 +8,10 @@ Cat::Cat()
 	std::cout << "[" << BOLD(FBLU("DCTR Cat")) << "] "<< "Default constructor called ~ Cat created" << std::endl;
 }
 
-Cat::Cat(Cat const & cpy): Animal(cpy)
+Cat::Cat(Cat const & cpy)
 {
 	std::cout << "[" << BOLD(FBLU("Copy CTR")) << "] "<< "Copy constructor called" << std::endl;
+	*this = cpy;
 }
 
 Cat::~Cat()
