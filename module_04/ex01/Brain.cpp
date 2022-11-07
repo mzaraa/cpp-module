@@ -2,12 +2,12 @@
 	/******************************** Constructor & destructor ********************************/
 Brain::Brain(void)
 {
-	//std::cout << "[" << BOLD(FBLU("DCTR Brain")) << "] "<< "Default constructor ~ Brain" << std::endl;
+	std::cout << "[" << BOLD(FBLU("DCTR Brain")) << "] "<< "Default constructor ~ Brain" << std::endl;
 }
 
 Brain::Brain(const Brain& cpy)
 {
-	//std::cout << "[" << BOLD(FMAG("DCTR")) << "] "<< "Copy constructor" << std::endl;
+	std::cout << "[" << BOLD(FMAG("DCTR")) << "] "<< "Copy constructor" << std::endl;
 	*this = cpy;
 }
 

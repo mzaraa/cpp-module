@@ -5,12 +5,12 @@
 Dog::Dog(): _brain(new Brain())
 {
 	_type = "Dog";
-	//std::cout << "[" << BOLD(FBLU("DCTR Dog")) << "] "<< "Default constructor ~ Dog" << std::endl;
+	std::cout << "[" << BOLD(FBLU("DCTR Dog")) << "] "<< "Default constructor ~ Dog" << std::endl;
 }
 
 Dog::Dog(Dog const & cpy)
 {
-	//std::cout << "[" << BOLD(FMAG("Copy CTR")) << "] "<< "Copy constructor" << std::endl;
+	std::cout << "[" << BOLD(FMAG("Copy CTR")) << "] "<< "Copy constructor" << std::endl;
 	_brain = new Brain();
 	*this = cpy;
 }

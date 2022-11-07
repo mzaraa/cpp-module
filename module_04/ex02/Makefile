@@ -2,7 +2,7 @@ TARGET		= prog
 SRCS		= main.cpp Brain.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
 HEADERS		=
 CC			= g++
-CPP_FLAGS	= -std=c++98
+CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98
 LD			= $(CC)
 OBJS		= $(SRCS:%.cpp=%.o)
 RM			= rm -rf
