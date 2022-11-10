@@ -16,9 +16,9 @@ public:
 
 private:
 	static unsigned int const	max_contact = 8;
+	Contact 		_contact[max_contact];
 	unsigned int	_pb_index;
 	unsigned int	_array_size;
-	Contact 		_contact[max_contact];
 	std::string		_truncate(std::string string);
 };
 
