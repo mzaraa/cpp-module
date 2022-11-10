@@ -4,12 +4,12 @@
 
 Animal::Animal(): _type("default")
 {
-	//std::cout << "[" << BOLD(FBLU("DCTR Animal")) << "] "<< "Default constructor ~ Animal" << std::endl;
+	std::cout << "[" << BOLD(FBLU("DCTR Animal")) << "] "<< "Default constructor ~ Animal" << std::endl;
 }
 
 Animal::Animal(Animal const & cpy)
 {
-	//std::cout << "[" << BOLD(FMAG("Copy CTR")) << "] "<< "Copy constructor" << std::endl;
+	std::cout << "[" << BOLD(FMAG("Copy CTR")) << "] "<< "Copy constructor" << std::endl;
 	*this = cpy;
 }
 

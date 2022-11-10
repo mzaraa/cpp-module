@@ -2,12 +2,14 @@
 	/******************************** Constructor & destructor ********************************/
 Brain::Brain(void)
 {
-	//std::cout << "[" << BOLD(FBLU("DCTR Brain")) << "] "<< "Default constructor ~ Brain" << std::endl;
+	std::cout << "[" << BOLD(FBLU("DCTR Brain")) << "] "<< "Default constructor ~ Brain" << std::endl;
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = "Brain idea ";
 }
 
 Brain::Brain(const Brain& cpy)
 {
-	//std::cout << "[" << BOLD(FMAG("DCTR")) << "] "<< "Copy constructor" << std::endl;
+	std::cout << "[" << BOLD(FMAG("DCTR")) << "] "<< "Copy constructor" << std::endl;
 	*this = cpy;
 }
 
@@ -23,14 +25,9 @@ Brain & Brain::operator=(const Brain & ref)
 	if (this == &ref)
 		return *this;
 	for (int i = 0; i < 100; i++)
-		_ideas[i] = ref._ideas[i];
+		_ideas[i] = ref._ideas[i] + " copy !";
 
 	return *this;
-}
-
-void Brain::setIdea(size_t index, std::string const &s)
-{
-	_ideas[index] = s;
 }
 
 std::string const & Brain::getIdea(size_t index) const

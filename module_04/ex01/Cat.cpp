@@ -40,7 +40,7 @@ void Cat::makeSound(void) const
 	std::cout << "Miaou miaou !" << std::endl;
 }
 
-Brain		*Cat::getBrain()
+Brain		*Cat::getBrainValue()
 {
 	return (_brain);
 }
