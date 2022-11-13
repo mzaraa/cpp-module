@@ -1,8 +1,8 @@
 TARGET		= prog
-SRCS		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
+SRCS		= main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 HEADERS		=
 CC			= g++
-CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98
+CPP_FLAGS	= -std=c++98
 LD			= $(CC)
 OBJS		= $(SRCS:%.cpp=%.o)
 RM			= rm -rf
