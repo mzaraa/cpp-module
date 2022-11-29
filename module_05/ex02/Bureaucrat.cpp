@@ -3,9 +3,10 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat(std::string const & name, unsigned grade): _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string const & name, unsigned grade) throw(Bureaucrat::GradeTooLowException, Bureaucrat::GradeTooHighException)
+	: _name(name), _grade(grade)
 {
-	std::cout << "[" << BOLD(FGRN("DCTR Bureaucrat")) << "] "<< "Default constructor called ~ Bureaucrat created" << std::endl;
+	std::cout << "[" << BOLD(FGRN("DCTR Bureaucrat")) << "] "<< "Default constructor called" << std::endl;
 	if ((int)grade < 1) 
 		throw Bureaucrat::GradeTooHighException();
 	if ((int)grade > 150) 
@@ -41,13 +42,15 @@ unsigned int Bureaucrat::getGrade() const
 	return _grade;
 }
 
-void Bureaucrat::decrementation(){
+void Bureaucrat::decrementation() throw(Bureaucrat::GradeTooLowException)
+{
     if ((int)_grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();
     _grade += 1;
 }
 
-void Bureaucrat::incrementation(){
+void Bureaucrat::incrementation() throw(Bureaucrat::GradeTooHighException)
+{
       if ((int)_grade - 1 < 1)
         throw Bureaucrat::GradeTooHighException();
     _grade -= 1;
@@ -71,7 +74,7 @@ void Bureaucrat::executeForm(Form const & form) // added for ex02
 	try
 	{
 		form.execute(*this);
-		std::cout << _name << " signed " << form.getName() << std::endl;
+		std::cout << _name << " executed " << form.getName() << std::endl;
 	}
 	catch (std::exception &e)
 	{

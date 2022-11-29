@@ -33,16 +33,6 @@
 class Bureaucrat
 {
 	public:
-		Bureaucrat(const std::string & name = "unknow", unsigned int grade = 150);
-		Bureaucrat(Bureaucrat const & cpy);
-		~Bureaucrat();
-		Bureaucrat & operator=(Bureaucrat const & rhs);
-
-		std::string const	getName() const;
-		unsigned int		getGrade() const;
-		void 				decrementation();
-		void 				incrementation();
-
 			class GradeTooHighException: public std::exception
 			{
 				public:
@@ -54,6 +44,16 @@ class Bureaucrat
 				public:
 					const char *what() const throw();
 			};
+
+		Bureaucrat(const std::string & name = "unknow", unsigned int grade = 150) throw(Bureaucrat::GradeTooLowException, Bureaucrat::GradeTooHighException);
+		Bureaucrat(Bureaucrat const & cpy);
+		~Bureaucrat();
+		Bureaucrat & operator=(Bureaucrat const & rhs);
+
+		std::string const	getName() const;
+		unsigned int		getGrade() const;
+		void 				decrementation() throw(Bureaucrat::GradeTooLowException);
+		void 				incrementation() throw(Bureaucrat::GradeTooHighException);
 
 	private:
 		std::string const	_name;

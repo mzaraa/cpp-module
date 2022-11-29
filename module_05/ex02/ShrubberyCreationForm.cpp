@@ -2,7 +2,7 @@
 #include <iostream>
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target): Form("ShrubberyCreationForm", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target): Form("ShrubberyCreationForm", 137, 145), _target(target)
 {
 }
 
@@ -24,8 +24,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void ShrubberyCreationForm::action() const
 {
-	std::ofstream	ofs("_shrubbery");
-	// if (!ofs)
+	std::ofstream	ofs(std::string(_target + "_shrubbery").c_str());
+	if (!ofs)
+		std::cerr << "Error: Failed to open the file\n";
 	for (int i = 0; i < 3; i++)
 	{
 		ofs << "       _-_" << std::endl \

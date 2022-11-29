@@ -1,8 +1,9 @@
 #include "Form.hpp"
 
-Form::Form(std::string const & name, unsigned int gradeToExec, unsigned int gradeToSign): _name(name), _gradeToExec(gradeToExec), _gradeToSign(gradeToSign), _signed(false)
+Form::Form(std::string const & name, unsigned int gradeToExec, unsigned int gradeToSign) throw(Form::GradeTooLowException, Form::GradeTooHighException)
+	: _name(name), _gradeToExec(gradeToExec), _gradeToSign(gradeToSign), _signed(false)
 {
-	std::cout << "[" << BOLD(FGRN("DCTR Form")) << "] "<< "Default constructor called ~ Form created" << std::endl;
+	std::cout << "[" << BOLD(FGRN("DCTR Form")) << "] "<< "Default constructor called" << std::endl;
 	if ((int)_gradeToExec < 1 || (int)_gradeToSign < 1) 
 		throw Form::GradeTooHighException();
 	if ((int)_gradeToExec > 150 || (int)_gradeToSign > 150) 
@@ -48,9 +49,9 @@ unsigned int Form::getGradeToSign() const
 	return _gradeToSign;
 }
 
-void Form::beSigned(Bureaucrat & bureaucrat)
+void Form::beSigned(Bureaucrat & bureaucrat) throw(Form::GradeTooLowException)
 {
-	if (bureaucrat.getGrade() >= getGradeToSign())
+	if (bureaucrat.getGrade() > getGradeToSign())
 	{
 		bureaucrat.signForm(_name, 0);
 		throw Form::GradeTooLowException();

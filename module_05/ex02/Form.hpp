@@ -32,19 +32,6 @@ class Bureaucrat;
 class Form
 {
 	public:
-		Form(std::string const & name = "unknow", unsigned int gradeToExec = 1, unsigned int gradeToSign = 1);
-		Form(Form const & cpy);
-		~Form();
-		Form & operator=(Form const & rhs);
-
-		std::string const	getName() const;
-		bool 				getSigned() const;
-		unsigned int 		getGradeToExec() const;
-		unsigned int 		getGradeToSign() const;
-		void				beSigned(Bureaucrat const & bureaucrat);
-		void 				execute(Bureaucrat const & executor) const;
-		virtual void 		action() const = 0;
-
 			class GradeTooHighException: public std::exception
 			{
 				public:
@@ -62,6 +49,19 @@ class Form
 				public:
 					const char *what() const throw();
 			};
+
+		Form(std::string const & name = "unknow", unsigned int gradeToExec = 1, unsigned int gradeToSign = 1) throw(Form::GradeTooLowException, Form::GradeTooHighException);
+		Form(Form const & cpy);
+		~Form();
+		Form & operator=(Form const & rhs);
+
+		std::string const	getName() const;
+		bool 				getSigned() const;
+		unsigned int 		getGradeToExec() const;
+		unsigned int 		getGradeToSign() const;
+		void				beSigned(Bureaucrat const & bureaucrat) throw(Form::GradeTooLowException);
+		void 				execute(Bureaucrat const & executor) const throw(FormNotSignedException, GradeTooLowException);
+		virtual void 		action() const = 0;
 
 	private:
 		std::string const	_name;

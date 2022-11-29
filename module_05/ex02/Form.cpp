@@ -1,9 +1,10 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(std::string const & name, unsigned int gradeToExec, unsigned int gradeToSign): _name(name), _gradeToExec(gradeToExec), _gradeToSign(gradeToSign), _signed(false)
+Form::Form(std::string const & name, unsigned int gradeToExec, unsigned int gradeToSign) throw(Form::GradeTooLowException, Form::GradeTooHighException)
+	: _name(name), _gradeToExec(gradeToExec), _gradeToSign(gradeToSign), _signed(false)
 {
-	std::cout << "[" << BOLD(FGRN("DCTR Form")) << "] "<< "Default constructor called ~ Form created" << std::endl;
+	std::cout << "[" << BOLD(FGRN("DCTR Form")) << "] "<< "Default constructor called" << std::endl;
 	if ((int)_gradeToExec < 1 || (int)_gradeToSign < 1) 
 		throw Form::GradeTooHighException();
 	if ((int)_gradeToExec > 150 || (int)_gradeToSign > 150) 
@@ -49,7 +50,7 @@ unsigned int Form::getGradeToSign() const
 	return _gradeToSign;
 }
 
-void Form::beSigned(Bureaucrat const & bureaucrat)
+void Form::beSigned(Bureaucrat const & bureaucrat) throw(Form::GradeTooLowException)
 {
 	if (bureaucrat.getGrade() >= getGradeToSign())
 		throw Form::GradeTooLowException();
@@ -58,11 +59,11 @@ void Form::beSigned(Bureaucrat const & bureaucrat)
 }
 
 	// added for ex02
-void Form::execute(Bureaucrat const & executor) const
+void Form::execute(Bureaucrat const & executor) const throw(FormNotSignedException, GradeTooLowException)
 {
 	if (!getSigned())
 		throw FormNotSignedException();
-	if (executor.getGrade() >= getGradeToExec())
+	if (executor.getGrade() > getGradeToExec())
 		throw GradeTooLowException();
 	action();
 }

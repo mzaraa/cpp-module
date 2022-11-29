@@ -4,47 +4,60 @@
 
 int main(void)
 {
-	// // Test grade too high
-	// std::cout << BOLD(FYEL("Exception : grade too high")) << std::endl;
-    // try
-    // {
-    //     Bureaucrat Rox("Rox", -42);
-    //     std::cout << Rox << std::endl;
+	// test no exception throw
+	std::cout << BOLD(FYEL("No exception")) << std::endl;
+	try
+	{
+		Bureaucrat Rox("Rox", 10);
+		Form vente("Vente_maison", 140, 10);
+		vente.beSigned(Rox);
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
 
-    // }
-    // catch (std::exception & e)
-    // {
-    //     std::cout << e.what() << std::endl;
-    // }
-	// std::cout << std::endl;
+	// test exception throw -> bureaucrate grade's too low
+	std::cout << BOLD(FYEL("Bureaucrate grade's too low")) << std::endl;
+	try
+	{
+		Bureaucrat Rookie("Rookie", 140);
+		Form vente("Vente_maison", 10, 10);
+		vente.beSigned(Rookie);
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
 
-	// // Test grade perfect
-	// std::cout << BOLD(FYEL("No exception thrown then decrementation so grade become to low")) << std::endl;
-    // try
-    // {
-    //     Bureaucrat Rookie("Rookie", 150); // Object created successfully so destructor was called 
-    //     std::cout << Rookie << std::endl;
-    //     Rookie.decrementation();
-    // }
-    // catch (std::exception & e)
-    // {
-    //     std::cout << e.what() << std::endl;
-    // }
-	// std::cout << std::endl;
+	// test exception throw -> grade too low
+	std::cout << BOLD(FYEL("Bad Form init (GradeTooLowException)")) << std::endl;
+	try
+	{
+		Bureaucrat Rookie("Rookie", 140);
+		Form vente("Vente_maison", 160, 10);
+		vente.beSigned(Rookie);
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
 
-	// // Test grade too low
-	// std::cout << BOLD(FYEL("Exception : grade too low")) << std::endl;
-    // try
-    // {
-    //     Bureaucrat Tom("Tom", 160);
-    //     Tom.incrementation();
-    //     std::cout << Tom << std::endl;
-    // }
-    // catch (std::exception & e)
-    // {
-    //     std::cout << e.what() << std::endl;
-    // }
-	// return 0;
-
+	// test exception throw -> grade too high
+	std::cout << BOLD(FYEL("Bad Form init (GradeTooHighException)")) << std::endl;
+	try
+	{
+		Bureaucrat Rookie("Rookie", 140);
+		Form vente("Vente_maison", -10, 10);
+		vente.beSigned(Rookie);
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
 	return 0;
 }

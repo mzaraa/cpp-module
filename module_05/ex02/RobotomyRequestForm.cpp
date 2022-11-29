@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const & target): Form("RobotomyRequestForm", 5, 25), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string const & target): Form("RobotomyRequestForm", 45, 72), _target(target)
 {
 }
 
@@ -24,8 +25,8 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::action() const
 {
-	int	b = rand() % 100 + 1;
-	if (b % 2)
+	std::srand(std::time(0)); //use current time as seed for random generator
+	if ((std::rand() % 2) == 0)
 		std::cout << "BRZZZ !! " << _target << " has been robotomised." << std::endl;
 	else
 		std::cout << "Robotomization failed..." << std::endl;
