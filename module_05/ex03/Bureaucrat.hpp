@@ -4,6 +4,7 @@
 # include <string>
 # include <stdexcept>
 # include <iostream>
+# include "Form.hpp"
 
 	/****************** Colors ******************/
 
@@ -26,8 +27,6 @@
 
 #define BOLD(x) "\x1B[1m" x RST
 #define UNDL(x) "\x1B[4m" x RST
-
-class Form;
 
 	/****************** Class ******************/
 class Bureaucrat
