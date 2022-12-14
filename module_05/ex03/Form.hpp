@@ -52,7 +52,7 @@ class Form
 
 		Form(std::string const & name = "unknow", unsigned int gradeToExec = 1, unsigned int gradeToSign = 1) throw(Form::GradeTooLowException, Form::GradeTooHighException);
 		Form(Form const & cpy);
-		~Form();
+		virtual ~Form();
 		Form & operator=(Form const & rhs);
 
 		std::string const	getName() const;
@@ -65,9 +65,9 @@ class Form
 
 	private:
 		std::string const	_name;
-		bool				_signed;
-		unsigned int const	_gradeToSign;
 		unsigned int const	_gradeToExec;
+		unsigned int const	_gradeToSign;
+		bool				_signed;
 
 };
 

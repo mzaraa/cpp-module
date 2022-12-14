@@ -65,9 +65,9 @@ class Form
 
 	private:
 		std::string const	_name;
-		bool				_signed;
-		unsigned int const	_gradeToSign;
 		unsigned int const	_gradeToExec;
+		unsigned int const	_gradeToSign;
+		bool				_signed;
 
 };
 
