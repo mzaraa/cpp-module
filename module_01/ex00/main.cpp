@@ -8,7 +8,7 @@ int	main(void)
 		h_zombie->annonce();
 		delete h_zombie;
 	}
-	catch(const std::bad_alloc& e)
+	catch(const std::bad_alloc & e)
 	{
 		std::cerr << "Allocation failed :" << e.what() << '\n';
 	}
